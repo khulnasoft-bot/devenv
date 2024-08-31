@@ -3,7 +3,7 @@
   "displayName": "Dev Workshop",
   "description": "Boost Dev typesetting efficiency with preview, compile, autocomplete, colorize, and more.",
   "icon": "icons/icon.png",
-  "version": "10.2.1",
+  "version": "1.1.1",
   "publisher": "khulnasoft",
   "license": "MIT",
   "homepage": "https://github.com/khulnasoft/devenv",

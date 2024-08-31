@@ -7,7 +7,7 @@ We also reject requests adding additional recipes to default settings.
 
 ```bash
 git clone https://github.com/khulnasoft/devenv.git
-cd ./Devenv
+cd ./devenv
 cp ./dev/githooks/pre-commit .git/hooks/
 npm ci
 code -n .
