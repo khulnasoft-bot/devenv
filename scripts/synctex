@@ -1,0 +1,2 @@
+#!/bin/sh
+$DEVENV_DOCKER_PATH run -i --rm -w "$(pwd)" -v "$(pwd):$(pwd)" $DEVENV_DOCKER_DEV synctex "$@"

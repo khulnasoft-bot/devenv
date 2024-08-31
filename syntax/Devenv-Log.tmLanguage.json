@@ -1,0 +1,85 @@
+{
+    "name": "Dev Workshop log",
+    "patterns": [
+        {
+            "begin": "^\\[([0-9\\.:]*)\\]\\[(\\w*)\\](?:\\[(\\w*)\\])?\\s?",
+            "end":"$",
+            "beginCaptures": {
+                "1": {
+                    "name": "constant.numeric.timestamp.dev_workshop.log"
+                },
+                "2": {
+                    "name": "constant.language.dev_workshop.log"
+                },
+                "3": {
+                    "name": "constant.language.dev_workshop.log"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#events"
+                },
+                {
+                    "include": "#variables"
+                },
+                {
+                    "include": "#message_with_brace_arguments"
+                },
+                {
+                    "include": "#message_with_bracket_arguments"
+                }
+            ]
+        }
+    ],
+    "repository": {
+        "events": {
+            "match": "\\G(BUILD_DONE|AUTO_BUILD_INITIATED|ROOT_FILE_CHANGED|ROOT_FILE_SEARCHED|FILE_PARSED|VIEWER_PAGE_LOADED|VIEWER_STATUS_CHANGED|FILE_WATCHED|FILE_CHANGED|FILE_REMOVED|DOCUMENT_CHANGED|STRUCTURE_UPDATED|AUTO_CLEANED)(?::\\s(.*))?",
+            "captures": {
+                "1": {
+                    "name": "support.function.dev_workshop.log"
+                },
+                "2": {
+                    "name": "string.dev_workshop.log"
+                }
+            },
+            "name": "meta.event.dev_workshop.log"
+        },
+         "variables": {
+            "match": "\\G(?:Set\\s)?(\\$?[\\w\\.-]+):\\s?(.*(?=\\s?\\.$)|.*(?=$))",
+            "captures": {
+                "1": {
+                    "name": "support.variable.dev_workshop.log"
+                },
+                "2": {
+                    "name": "string.dev_workshop.log"
+                }
+            },
+            "name": "meta.variable.dev_workshop.log"
+        },
+        "message_with_bracket_arguments": {
+            "match": "\\G([\\w\\s]+):\\s?\\[(.*)\\]",
+            "captures": {
+                "1": {
+                    "name": "entity.message.dev_workshop.log"
+                },
+                "2": {
+                    "name": "string.dev_workshop.log"
+                }
+            },
+            "name": "meta.message.dev_workshop.log"
+        },
+        "message_with_brace_arguments": {
+            "match": "\\G([\\w\\s]+):\\s?\\{(.*)\\}",
+            "captures": {
+                "1": {
+                    "name": "entity.message.dev_workshop.log"
+                },
+                "2": {
+                    "name": "string.dev_workshop.log"
+                }
+            },
+            "name": "meta.message.dev_workshop.log"
+        }
+    },
+    "scopeName": "text.dev_workshop.log"
+}

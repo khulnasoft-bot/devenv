@@ -1,0 +1,36 @@
+{
+  "includes": {
+    "graphicx": [],
+    "ifxetex": []
+  },
+  "macros": {
+    "XeTeX": {},
+    "XeDev": {},
+    "LuaTeX": {},
+    "LuaDev": {},
+    "setlogokern{}{}": {
+      "snippet": "setlogokern{${1:string}}{${2:dimen}}"
+    },
+    "setlogodrop{}": {
+      "snippet": "setlogodrop{${1:dimen}}"
+    },
+    "setlogodrop[]{}": {
+      "snippet": "setlogodrop[${2:string}]{${1:dimen}}"
+    },
+    "setDeva{}": {
+      "snippet": "setDeva{${1:arg}}"
+    },
+    "setDevee{}": {
+      "snippet": "setDevee{${1:arg}}"
+    },
+    "seteverylogo{}": {
+      "snippet": "seteverylogo{${1:tokens}}"
+    },
+    "everylogo{}": {
+      "snippet": "everylogo{${1:tokens}}"
+    }
+  },
+  "envs": {},
+  "options": [],
+  "keyvals": []
+}

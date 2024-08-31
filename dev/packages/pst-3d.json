@@ -1,0 +1,45 @@
+{
+  "includes": {
+    "pstricks": [],
+    "pst-xkey": []
+  },
+  "macros": {
+    "psAffinTransform[]{}{}": {
+      "snippet": "psAffinTransform[${3:options}]{${1:transformation matrix}}{${2:stuff}}"
+    },
+    "psAffinTransform{}{}": {
+      "snippet": "psAffinTransform{${1:transformation matrix}}{${2:stuff}}"
+    },
+    "pssetzlength{}{}": {
+      "snippet": "pssetzlength{${1:cmd}}{${2:dim}}"
+    },
+    "psshadow[]{}": {
+      "snippet": "psshadow[${2:options}]{${1:stuff}}"
+    },
+    "psshadow{}": {
+      "snippet": "psshadow{${1:stuff}}"
+    },
+    "pstilt[]{}{}": {
+      "snippet": "pstilt[${3:options}]{${1:angle}}{${2:stuff}}"
+    },
+    "psTilt[]{}{}": {
+      "snippet": "psTilt[${3:options}]{${1:angle}}{${2:stuff}}"
+    },
+    "pstilt{}{}": {
+      "snippet": "pstilt{${1:angle}}{${2:stuff}}"
+    },
+    "psTilt{}{}": {
+      "snippet": "psTilt{${1:angle}}{${2:stuff}}"
+    },
+    "PSTthreeDLoaded": {},
+    "ThreeDput(){}": {
+      "snippet": "ThreeDput(${2:x},${3:y},${4:z}){${1:stuff}}"
+    },
+    "ThreeDput[](){}": {
+      "snippet": "ThreeDput[${2:options}](${3:x},${4:y},${5:z}){${1:stuff}}"
+    }
+  },
+  "envs": {},
+  "options": [],
+  "keyvals": []
+}

@@ -1,0 +1,79 @@
+{
+    "fileTypes": [
+        "rnw",
+        "Rnw",
+        "rtex",
+        "Rtex",
+        "snw",
+        "Snw"
+    ],
+    "name": "RSweave",
+    "patterns": [
+        {
+            "captures": {
+                "1": {
+                    "name": "support.function.verb.dev"
+                },
+                "2": {
+                    "name": "punctuation.definition.function.dev"
+                },
+                "3": {
+                    "name": "punctuation.definition.arguments.begin.dev"
+                },
+                "4": {
+                    "patterns": [
+                        {
+                            "include": "source.r"
+                        }
+                    ]
+                },
+                "5": {
+                    "name": "punctuation.definition.arguments.end.dev"
+                }
+            },
+            "match": "((\\\\)Sexpr)(\\{)([^\\{\\}]*)(\\})",
+            "name": "meta.function.verb.dev"
+        },
+        {
+            "include": "text.tex.dev"
+        },
+        {
+            "begin": "^(\\s*?)(<<)(.*?)(>>=)\\s*(.+)?\\s*\\n",
+            "beginCaptures": {
+                "2": {
+                    "name": "meta.tag.rsweave"
+                },
+                "3": {
+                    "patterns": [
+                        {
+                            "include": "source.r#function-parameters"
+                        }
+                    ]
+                },
+                "4": {
+                    "name": "meta.tag.rsweave"
+                },
+                "5": {
+                    "name": "invalid.illegal.rsweave"
+                }
+            },
+            "contentName": "source.r",
+            "end": "^\\1(@)\\s*(.+)?\\s*\\n",
+            "endCaptures": {
+                "1": {
+                    "name": "meta.tag.rsweave"
+                },
+                "2": {
+                    "name": "invalid.illegal.rsweave"
+                }
+            },
+            "name": "text.tex.dev.rsweave.codeblock",
+            "patterns": [
+                {
+                    "include": "source.r"
+                }
+            ]
+        }
+    ],
+    "scopeName": "text.tex.dev.rsweave"
+}

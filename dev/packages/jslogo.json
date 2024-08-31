@@ -1,0 +1,29 @@
+{
+  "includes": {},
+  "macros": {
+    "cmrTeX": {},
+    "cmrDev": {},
+    "sfTeX": {},
+    "sfDev": {},
+    "ptmTeX": {},
+    "ptmDev": {},
+    "pncTeX": {},
+    "pncDev": {},
+    "pplTeX": {},
+    "pplDev": {},
+    "ugmTeX": {},
+    "ugmDev": {},
+    "pTeX": {},
+    "pDev": {},
+    "pDeve": {},
+    "upTeX": {},
+    "upDev": {},
+    "upDeve": {},
+    "AmSTeX": {},
+    "BibTeX": {},
+    "SliTeX": {}
+  },
+  "envs": {},
+  "options": [],
+  "keyvals": []
+}

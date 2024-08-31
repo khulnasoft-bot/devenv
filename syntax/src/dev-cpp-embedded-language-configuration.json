@@ -1,0 +1,3 @@
+{
+	"extends": "https://raw.githubusercontent.com/jlelong/vscode-dev-basics/main/languages/dev-cpp-embedded-language-configuration.json"
+}

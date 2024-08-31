@@ -1,0 +1,18 @@
+{
+  "includes": {
+    "url": []
+  },
+  "macros": {
+    "useOriginalUrlSetting": {}
+  },
+  "envs": {},
+  "options": [
+    "nobibdev",
+    "obeyspaces",
+    "hyphens",
+    "spaces",
+    "lowtilde",
+    "allowmove"
+  ],
+  "keyvals": []
+}

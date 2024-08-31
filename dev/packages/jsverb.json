@@ -1,0 +1,17 @@
+{
+  "includes": {
+    "pdev": []
+  },
+  "macros": {
+    "ttyen": {},
+    "ttbslash": {},
+    "BS": {},
+    "verbatimleftmargin": {},
+    "verbatimsize": {}
+  },
+  "envs": {},
+  "options": [
+    "yen"
+  ],
+  "keyvals": []
+}

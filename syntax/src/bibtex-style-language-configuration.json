@@ -1,0 +1,3 @@
+{
+	"extends": "https://raw.githubusercontent.com/jlelong/vscode-dev-basics/main/languages/bibtex-style-language-configuration.json"
+}

@@ -1,0 +1,12 @@
+{
+  "includes": {
+    "pdev": [],
+    "etoolbox": [],
+    "xspace": [],
+    "pdftexcmds": []
+  },
+  "macros": {},
+  "envs": {},
+  "options": [],
+  "keyvals": []
+}

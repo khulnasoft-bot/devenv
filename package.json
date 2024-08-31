@@ -1,0 +1,2622 @@
+{
+  "name": "dev-workshop",
+  "displayName": "Dev Workshop",
+  "description": "Boost Dev typesetting efficiency with preview, compile, autocomplete, colorize, and more.",
+  "icon": "icons/icon.png",
+  "version": "10.2.1",
+  "publisher": "khulnasoft",
+  "license": "MIT",
+  "homepage": "https://github.com/khulnasoft/devenv",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khulnasoft/devenv.git"
+  },
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Linters",
+    "Formatters"
+  ],
+  "keywords": [
+    "dev",
+    "tex",
+    "compile",
+    "preview",
+    "hint"
+  ],
+  "activationEvents": [
+    "onCommand:dev-workshop.activate",
+    "onWebviewPanel:dev-workshop-pdf"
+  ],
+  "main": "./out/src/main.js",
+  "capabilities": {
+    "virtualWorkspaces": {
+      "supported": "limited",
+      "description": "Only a few features are supported."
+    },
+    "untrustedWorkspaces": {
+      "supported": false
+    }
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "tex",
+        "aliases": [
+          "TeX",
+          "tex"
+        ],
+        "extensions": [
+          ".sty",
+          ".cls",
+          ".bbx",
+          ".cbx"
+        ],
+        "configuration": "./syntax/dev-language-configuration.json"
+      },
+      {
+        "id": "doctex",
+        "aliases": [
+          "DocTeX",
+          "doctex"
+        ],
+        "extensions": [
+          ".dtx"
+        ],
+        "configuration": "./syntax/doctex-language-configuration.json"
+      },
+      {
+        "id": "dev",
+        "aliases": [
+          "Dev",
+          "dev"
+        ],
+        "extensions": [
+          ".tex",
+          ".ltx",
+          ".ctx"
+        ],
+        "configuration": "./syntax/dev-language-configuration.json"
+      },
+      {
+        "id": "bibtex",
+        "aliases": [
+          "BibTeX",
+          "bibtex"
+        ],
+        "extensions": [
+          ".bib"
+        ],
+        "configuration": "./syntax/bibtex-language-configuration.json"
+      },
+      {
+        "id": "bibtex-style",
+        "aliases": [
+          "BibTeX style"
+        ],
+        "extensions": [
+          ".bst"
+        ],
+        "configuration": "./syntax/bibtex-style-language-configuration.json"
+      },
+      {
+        "id": "dev-expl3",
+        "aliases": [
+          "Dev-Expl3"
+        ],
+        "configuration": "./syntax/dev3-language-configuration.json"
+      },
+      {
+        "id": "pweave",
+        "aliases": [
+          "Pweave"
+        ],
+        "extensions": [
+          ".pnw",
+          ".ptexw"
+        ],
+        "configuration": "./syntax/dev-language-configuration.json"
+      },
+      {
+        "id": "jlweave",
+        "aliases": [
+          "Weave.jl"
+        ],
+        "extensions": [
+          ".jnw",
+          ".jtexw"
+        ],
+        "configuration": "./syntax/dev-language-configuration.json"
+      },
+      {
+        "id": "rsweave",
+        "aliases": [
+          "R Sweave"
+        ],
+        "extensions": [
+          ".rnw",
+          ".Rnw",
+          ".Rtex",
+          ".rtex",
+          ".snw",
+          ".Snw"
+        ],
+        "configuration": "./syntax/dev-language-configuration.json"
+      },
+      {
+        "id": "cpp_embedded_dev",
+        "configuration": "./syntax/dev-cpp-embedded-language-configuration.json"
+      },
+      {
+        "id": "markdown_dev_combined",
+        "configuration": "./syntax/markdown-dev-combined-language-configuration.json"
+      },
+      {
+        "id": "dev_workshop_log",
+        "aliases": [
+          "Dev Workshop Log"
+        ],
+        "configuration": "./syntax/dev-workshop-log-language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "tex",
+        "scopeName": "text.tex",
+        "path": "./syntax/TeX.tmLanguage.json"
+      },
+      {
+        "language": "doctex",
+        "scopeName": "text.tex.doctex",
+        "path": "./syntax/DocTeX.tmLanguage.json"
+      },
+      {
+        "language": "dev",
+        "scopeName": "text.tex.dev",
+        "path": "./syntax/Dev.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.asymptote": "asymptote",
+          "source.cpp": "cpp_embedded_dev",
+          "source.css": "css",
+          "source.dot": "dot",
+          "source.gnuplot": "gnuplot",
+          "text.html": "html",
+          "source.java": "java",
+          "source.js": "javascript",
+          "source.julia": "julia",
+          "source.lua": "lua",
+          "source.python": "python",
+          "source.ruby": "ruby",
+          "source.scala": "scala",
+          "source.ts": "typescript",
+          "text.xml": "xml",
+          "source.yaml": "yaml",
+          "meta.embedded.markdown_dev_combined": "markdown_dev_combined"
+        }
+      },
+      {
+        "language": "bibtex",
+        "scopeName": "text.bibtex",
+        "path": "./syntax/Bibtex.tmLanguage.json"
+      },
+      {
+        "language": "bibtex-style",
+        "scopeName": "source.bst",
+        "path": "./syntax/BibTeX-style.tmLanguage.json"
+      },
+      {
+        "language": "dev-expl3",
+        "scopeName": "text.tex.dev",
+        "path": "./syntax/Dev.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.asymptote": "asymptote",
+          "source.cpp": "cpp_embedded_dev",
+          "source.css": "css",
+          "source.dot": "dot",
+          "source.gnuplot": "gnuplot",
+          "text.html": "html",
+          "source.java": "java",
+          "source.js": "javascript",
+          "source.julia": "julia",
+          "source.lua": "lua",
+          "source.python": "python",
+          "source.ruby": "ruby",
+          "source.scala": "scala",
+          "source.ts": "typescript",
+          "text.xml": "xml",
+          "source.yaml": "yaml",
+          "meta.embedded.markdown_dev_combined": "markdown_dev_combined"
+        }
+      },
+      {
+        "language": "markdown_dev_combined",
+        "scopeName": "text.tex.markdown_dev_combined",
+        "path": "./syntax/markdown-dev-combined.tmLanguage.json"
+      },
+      {
+        "language": "cpp_embedded_dev",
+        "scopeName": "source.cpp.embedded.dev",
+        "path": "./syntax/cpp-grammar-bailout.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.assembly.cpp": "asm"
+        }
+      },
+      {
+        "language": "pweave",
+        "scopeName": "text.tex.dev.pweave",
+        "path": "./syntax/Pweave.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.python": "python"
+        }
+      },
+      {
+        "language": "jlweave",
+        "scopeName": "text.tex.dev.jlweave",
+        "path": "./syntax/JLweave.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.julia": "julia"
+        }
+      },
+      {
+        "language": "rsweave",
+        "scopeName": "text.tex.dev.rsweave",
+        "path": "./syntax/RSweave.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.r": "r"
+        }
+      },
+      {
+        "language": "dev_workshop_log",
+        "scopeName": "text.dev_workshop.log",
+        "path": "./syntax/Devenv-Log.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "dev",
+        "path": "./data/dev-snippet.json"
+      },
+      {
+        "language": "pweave",
+        "path": "./data/dev-snippet.json"
+      },
+      {
+        "language": "jlweave",
+        "path": "./data/dev-snippet.json"
+      },
+      {
+        "language": "rsweave",
+        "path": "./data/dev-snippet.json"
+      },
+      {
+        "language": "dev-expl3",
+        "path": "./data/dev-snippet.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "dev-workshop.navigate-envpair",
+        "title": "%command.navigate-envpair%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.select-envname",
+        "title": "%command.select-envname%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.select-envcontent",
+        "title": "%command.select-envcontent%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.select-env",
+        "title": "%command.select-env%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.multicursor-envname",
+        "title": "%command.multicursor-envname%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.wrap-env",
+        "title": "%command.wrap-env%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.surround",
+        "title": "%command.surround%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.close-env",
+        "title": "%command.close-env%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.toggle-equation-envname",
+        "title": "%command.toggle-equation-envname%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.revealOutputDir",
+        "title": "%command.revealoutput%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.saveWithoutBuilding",
+        "title": "%command.saveWithoutBuilding%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.build",
+        "title": "%command.build%",
+        "category": "Dev Workshop",
+        "icon": "$(debug-start)",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.recipes",
+        "title": "%command.recipes%",
+        "category": "Dev Workshop",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.view",
+        "title": "%command.view%",
+        "category": "Dev Workshop",
+        "icon": "$(open-preview)",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.tab",
+        "title": "%command.tab%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.viewInBrowser",
+        "title": "%command.viewInBrowser%",
+        "category": "Dev Workshop",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.viewExternal",
+        "title": "%command.viewExternal%",
+        "category": "Dev Workshop",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.refresh-viewer",
+        "title": "%command.refresh-viewer%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.kill",
+        "title": "%command.kill%",
+        "category": "Dev Workshop",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.synctex",
+        "title": "%command.synctex%",
+        "category": "Dev Workshop",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.clean",
+        "title": "%command.clean%",
+        "category": "Dev Workshop",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.citation",
+        "title": "%command.citation%",
+        "category": "Dev Workshop",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.addtexroot",
+        "title": "%command.addtexroot%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.wordcount",
+        "title": "%command.wordcount%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.changeHostName",
+        "title": "%command.changeHostName%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.resetHostName",
+        "title": "%command.resetHostName%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.compilerlog",
+        "title": "%command.compilerlog%",
+        "category": "Dev Workshop",
+        "enablement": "!virtualWorkspace"
+      },
+      {
+        "command": "dev-workshop.log",
+        "title": "%command.log%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.actions",
+        "title": "%command.actions%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop-dev.parselog",
+        "title": "%command-dev.parselog%",
+        "category": "Dev Workshop DevTools"
+      },
+      {
+        "command": "dev-workshop-dev.parsetex",
+        "title": "%command-dev.parsetex%",
+        "category": "Dev Workshop DevTools"
+      },
+      {
+        "command": "dev-workshop-dev.parsebib",
+        "title": "%command-dev.parsebib%",
+        "category": "Dev Workshop DevTools"
+      },
+      {
+        "command": "dev-workshop-dev.striptext",
+        "title": "%command-dev.striptext%",
+        "category": "Dev Workshop DevTools"
+      },
+      {
+        "command": "dev-workshop.texdoc",
+        "title": "%command.texdoc%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.texdocUsepackages",
+        "title": "%command.texdocUsepackages%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.promote-sectioning",
+        "title": "%command.promote-sectioning%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.demote-sectioning",
+        "title": "%command.demote-sectioning%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.select-section",
+        "title": "%command.select-section%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.bibsort",
+        "title": "%command.bibsort%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.bibalign",
+        "title": "%command.bibalign%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.bibalignsort",
+        "title": "%command.bibalignsort%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.openMathPreviewPanel",
+        "title": "%command.openMathPreviewPanel%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.closeMathPreviewPanel",
+        "title": "%command.closeMathPreviewPanel%",
+        "category": "Dev Workshop"
+      },
+      {
+        "command": "dev-workshop.toggleMathPreviewPanel",
+        "title": "%command.toggleMathPreviewPanel%",
+        "category": "Dev Workshop"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "ctrl+l alt+m",
+        "mac": "cmd+l alt+m",
+        "command": "dev-workshop.toggleMathPreviewPanel",
+        "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && config.dev-workshop.bind.altKeymap.enabled"
+      },
+      {
+        "key": "ctrl+l alt+b",
+        "mac": "cmd+l alt+b",
+        "command": "dev-workshop.build",
+        "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && config.dev-workshop.bind.altKeymap.enabled && !virtualWorkspace"
+      },
+      {
+        "key": "ctrl+l alt+c",
+        "mac": "cmd+l alt+c",
+        "command": "dev-workshop.clean",
+        "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && config.dev-workshop.bind.altKeymap.enabled && !virtualWorkspace"
+      },
+      {
+        "key": "ctrl+l alt+v",
+        "mac": "cmd+l alt+v",
+        "command": "dev-workshop.view",
+        "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && config.dev-workshop.bind.altKeymap.enabled && !virtualWorkspace"
+      },
+      {
+        "key": "ctrl+l alt+j",
+        "mac": "cmd+l alt+j",
+        "command": "dev-workshop.synctex",
+        "when": "editorTextFocus && editorLangId =~ /^dev$|^dev-expl3$|^doctex$/ && config.dev-workshop.bind.altKeymap.enabled && !virtualWorkspace"
+      },
+      {
+        "key": "ctrl+l alt+x",
+        "mac": "cmd+l alt+x",
+        "command": "workbench.view.extension.dev-workshop-activitybar",
+        "when": "config.dev-workshop.bind.altKeymap.enabled"
+      },
+      {
+        "key": "ctrl+alt+m",
+        "mac": "cmd+alt+m",
+        "command": "dev-workshop.toggleMathPreviewPanel",
+        "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !config.dev-workshop.bind.altKeymap.enabled"
+      },
+      {
+        "key": "ctrl+alt+b",
+        "mac": "cmd+alt+b",
+        "command": "dev-workshop.build",
+        "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !config.dev-workshop.bind.altKeymap.enabled && !virtualWorkspace"
+      },
+      {
+        "key": "ctrl+alt+c",
+        "mac": "cmd+alt+c",
+        "command": "dev-workshop.clean",
+        "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !config.dev-workshop.bind.altKeymap.enabled && !virtualWorkspace"
+      },
+      {
+        "key": "ctrl+alt+v",
+        "mac": "cmd+alt+v",
+        "command": "dev-workshop.view",
+        "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !config.dev-workshop.bind.altKeymap.enabled && !virtualWorkspace"
+      },
+      {
+        "key": "ctrl+alt+j",
+        "mac": "cmd+alt+j",
+        "command": "dev-workshop.synctex",
+        "when": "editorTextFocus && editorLangId =~ /^dev$|^dev-expl3$|^doctex$/ && !config.dev-workshop.bind.altKeymap.enabled && !virtualWorkspace"
+      },
+      {
+        "key": "ctrl+alt+x",
+        "mac": "cmd+alt+x",
+        "command": "workbench.view.extension.dev-workshop-activitybar",
+        "when": "!config.dev-workshop.bind.altKeymap.enabled"
+      },
+      {
+        "key": "ctrl+l [",
+        "mac": "cmd+l [",
+        "when": "config.dev-workshop.bind.altKeymap.enabled && editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.promote-sectioning"
+      },
+      {
+        "key": "ctrl+l ]",
+        "mac": "cmd+l ]",
+        "when": "config.dev-workshop.bind.altKeymap.enabled && editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.demote-sectioning"
+      },
+      {
+        "key": "ctrl+alt+[",
+        "mac": "cmd+alt+[",
+        "when": "!config.dev-workshop.bind.altKeymap.enabled && editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.promote-sectioning"
+      },
+      {
+        "key": "ctrl+alt+]",
+        "mac": "cmd+alt+]",
+        "when": "!config.dev-workshop.bind.altKeymap.enabled && editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.demote-sectioning"
+      },
+      {
+        "key": "ctrl+l ctrl+enter",
+        "mac": "cmd+l cmd+enter",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.item"
+      },
+      {
+        "key": "ctrl+l ctrl+b",
+        "mac": "cmd+l cmd+b",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.textbf"
+      },
+      {
+        "key": "ctrl+l ctrl+i",
+        "mac": "cmd+l cmd+i",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.textit"
+      },
+      {
+        "key": "ctrl+l ctrl+u",
+        "mac": "cmd+l cmd+u",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.underline"
+      },
+      {
+        "key": "ctrl+l ctrl+e",
+        "mac": "cmd+l cmd+e",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.emph"
+      },
+      {
+        "key": "ctrl+l ctrl+r",
+        "mac": "cmd+l cmd+r",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.textrm"
+      },
+      {
+        "key": "ctrl+l ctrl+t",
+        "mac": "cmd+l cmd+t",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.texttt"
+      },
+      {
+        "key": "ctrl+l ctrl+s",
+        "mac": "cmd+l cmd+s",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.textsl"
+      },
+      {
+        "key": "ctrl+l ctrl+c",
+        "mac": "cmd+l cmd+c",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.textsc"
+      },
+      {
+        "key": "ctrl+l ctrl+n",
+        "mac": "cmd+l cmd+n",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.textnormal"
+      },
+      {
+        "key": "ctrl+l ctrl+6",
+        "mac": "cmd+l cmd+6",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.textsuperscript"
+      },
+      {
+        "key": "ctrl+l ctrl+oem_minus",
+        "mac": "cmd+l cmd+oem_minus",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.textsubscript"
+      },
+      {
+        "key": "ctrl+m ctrl+b",
+        "mac": "ctrl+shift+m cmd+b",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.mathbf"
+      },
+      {
+        "key": "ctrl+m ctrl+i",
+        "mac": "ctrl+shift+m cmd+i",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.mathit"
+      },
+      {
+        "key": "ctrl+m ctrl+r",
+        "mac": "ctrl+shift+m cmd+r",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.mathrm"
+      },
+      {
+        "key": "ctrl+m ctrl+t",
+        "mac": "ctrl+shift+m cmd+t",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.mathtt"
+      },
+      {
+        "key": "ctrl+m ctrl+s",
+        "mac": "ctrl+shift+m cmd+s",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.mathsf"
+      },
+      {
+        "key": "ctrl+m ctrl+shift+b",
+        "mac": "ctrl+shift+m cmd+shift+b",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.mathbb"
+      },
+      {
+        "key": "ctrl+m ctrl+c",
+        "mac": "ctrl+shift+m cmd+c",
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.shortcut.mathcal"
+      },
+      {
+        "command": "expandLineSelection",
+        "key": "ctrl+l ctrl+l",
+        "mac": "cmd+l cmd+l",
+        "when": "textInputFocus && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+      },
+      {
+        "command": "editor.action.toggleTabFocusMode",
+        "key": "ctrl+l ctrl+m",
+        "mac": "cmd+l ctrl+shift+m",
+        "when": "textInputFocus && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+      },
+      {
+        "key": "ctrl+l ctrl+w",
+        "mac": "cmd+l cmd+w",
+        "when": "editorTextFocus && !editorReadonly && editorHasSelection && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/",
+        "command": "dev-workshop.surround"
+      },
+      {
+        "command": "dev-workshop.onEnterKey",
+        "key": "enter",
+        "when": "config.dev-workshop.bind.enter.key && editorTextFocus && acceptSuggestionOnEnter && !suggestWidgetVisible && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && vim.active && vim.mode == 'Insert'"
+      },
+      {
+        "command": "dev-workshop.onEnterKey",
+        "key": "enter",
+        "when": "config.dev-workshop.bind.enter.key && editorTextFocus && !acceptSuggestionOnEnter && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && vim.active && vim.mode == 'Insert'"
+      },
+      {
+        "command": "dev-workshop.onEnterKey",
+        "key": "enter",
+        "when": "config.dev-workshop.bind.enter.key && editorTextFocus && acceptSuggestionOnEnter && !suggestWidgetVisible && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !vim.active"
+      },
+      {
+        "command": "dev-workshop.onEnterKey",
+        "key": "enter",
+        "when": "config.dev-workshop.bind.enter.key && editorTextFocus && !acceptSuggestionOnEnter && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !vim.active"
+      },
+      {
+        "command": "dev-workshop.onAltEnterKey",
+        "key": "alt+enter",
+        "when": "config.dev-workshop.bind.enter.key && editorTextFocus && acceptSuggestionOnEnter && !suggestWidgetVisible && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+      },
+      {
+        "command": "dev-workshop.onAltEnterKey",
+        "key": "alt+enter",
+        "when": "config.dev-workshop.bind.enter.key && editorTextFocus && !acceptSuggestionOnEnter && !editorReadonly && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/"
+      }
+    ],
+    "configurationDefaults": {
+      "[dev]": {
+        "editor.formatOnPaste": false,
+        "editor.suggestSelection": "recentlyUsedByPrefix"
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Dev",
+      "properties": {
+        "dev-workshop.dev.recipes": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "tools": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "name",
+              "tools"
+            ],
+            "additionalProperties": false
+          },
+          "default": [
+            {
+              "name": "devmk",
+              "tools": [
+                "devmk"
+              ]
+            },
+            {
+              "name": "devmk (devmkrc)",
+              "tools": [
+                "devmk_rconly"
+              ]
+            },
+            {
+              "name": "devmk (luadev)",
+              "tools": [
+                "luadevmk"
+              ]
+            },
+            {
+              "name": "devmk (xedev)",
+              "tools": [
+                "xedevmk"
+              ]
+            },
+            {
+              "name": "pdfdev -> bibtex -> pdfdev * 2",
+              "tools": [
+                "pdfdev",
+                "bibtex",
+                "pdfdev",
+                "pdfdev"
+              ]
+            },
+            {
+              "name": "Compile Rnw files",
+              "tools": [
+                "rnw2tex",
+                "devmk"
+              ]
+            },
+            {
+              "name": "Compile Jnw files",
+              "tools": [
+                "jnw2tex",
+                "devmk"
+              ]
+            },
+            {
+              "name": "Compile Pnw files",
+              "tools": [
+                "pnw2tex",
+                "devmk"
+              ]
+            },
+            {
+              "name": "tectonic",
+              "tools": [
+                "tectonic"
+              ]
+            }
+          ],
+          "markdownDescription": "Define Dev compiling recipes. Each recipe in the list is an object containing its name and the names of tools to be used sequentially, which are defined in `#dev-workshop.dev.tools#`. By default, the first recipe is used to compile the project. For details, please visit https://github.com/khulnasoft/devenv/wiki/Compile#dev-recipes."
+        },
+        "dev-workshop.dev.recipe.default": {
+          "scope": "resource",
+          "type": "string",
+          "default": "first",
+          "markdownDescription": "Define which recipe is used by `#dev-workshop.build#`. It also applies to auto build. Recipes are referred to by their names as defined in `#dev-workshop.dev.recipes#`. Note there are two particular values: \n- `first` means to use the first recipe in `#dev-workshop.dev.recipes#`;\n- `lastUsed` means to use the last run recipe."
+        },
+        "dev-workshop.dev.tools": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "command": {
+                "type": "string"
+              },
+              "args": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "env": {
+                "type": "object"
+              }
+            },
+            "required": [
+              "name",
+              "command"
+            ],
+            "additionalProperties": false
+          },
+          "default": [
+            {
+              "name": "devmk",
+              "command": "devmk",
+              "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+              ],
+              "env": {}
+            },
+            {
+              "name": "luadevmk",
+              "command": "devmk",
+              "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-luadev",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+              ],
+              "env": {}
+            },
+            {
+              "name": "xedevmk",
+              "command": "devmk",
+              "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xedev",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+              ],
+              "env": {}
+            },
+            {
+              "name": "devmk_rconly",
+              "command": "devmk",
+              "args": [
+                "%DOC%"
+              ],
+              "env": {}
+            },
+            {
+              "name": "pdfdev",
+              "command": "pdfdev",
+              "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+              ],
+              "env": {}
+            },
+            {
+              "name": "bibtex",
+              "command": "bibtex",
+              "args": [
+                "%DOCFILE%"
+              ],
+              "env": {}
+            },
+            {
+              "name": "rnw2tex",
+              "command": "Rscript",
+              "args": [
+                "-e",
+                "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
+              ],
+              "env": {}
+            },
+            {
+              "name": "jnw2tex",
+              "command": "julia",
+              "args": [
+                "-e",
+                "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
+              ],
+              "env": {}
+            },
+            {
+              "name": "jnw2texminted",
+              "command": "julia",
+              "args": [
+                "-e",
+                "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
+              ],
+              "env": {}
+            },
+            {
+              "name": "pnw2tex",
+              "command": "pweave",
+              "args": [
+                "-f",
+                "tex",
+                "%DOC_EXT%"
+              ],
+              "env": {}
+            },
+            {
+              "name": "pnw2texminted",
+              "command": "pweave",
+              "args": [
+                "-f",
+                "texminted",
+                "%DOC_EXT%"
+              ],
+              "env": {}
+            },
+            {
+              "name": "tectonic",
+              "command": "tectonic",
+              "args": [
+                "--synctex",
+                "--keep-logs",
+                "%DOC%.tex"
+              ],
+              "env": {}
+            }
+          ],
+          "markdownDescription": "Define Dev compiling tools to be used in recipes. Each tool is labeled by its `name`. When invoked, `command` is spawned with arguments defined in `args` and environment variables defined in `env`. Typically no spaces should appear in each argument unless in paths. List of available placeholders: `%DOC%`, `%DOC_W32%, %DOC_EXT%`, `%DOC_EXT_W32%`, `%DOCFILE%`, `%DOCFILE_EXT%`, `%DIR%`, `%DIR_W32%`, `%TMPDIR%` and `%OUTDIR%`, `%OUTDIR_W32%`. Please visit https://github.com/khulnasoft/devenv/wiki/Compile#placeholders for a complete list of all placeholders."
+        },
+        "dev-workshop.dev.magic.args": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOC%"
+          ],
+          "markdownDescription": "Define the arguments to be input to magic command executable. This can be overridden by using \"% !TeX options\"."
+        },
+        "dev-workshop.dev.magic.bib.args": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "%DOCFILE%"
+          ],
+          "markdownDescription": "Define the arguments to be input to BIB magic command executable. This can be overridden by using \"% !BIB options\"."
+        },
+        "dev-workshop.dev.external.build.command": {
+          "scope": "resource",
+          "type": "string",
+          "default": "",
+          "markdownDescription": "The external command to execute when calling dev-workshop.build. This is useful when compiling relies on a Makefile or a bespoke script. When defined, it completely bypasses the recipes and root file detection mechanism."
+        },
+        "dev-workshop.dev.external.build.args": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "The arguments of `#dev-workshop.dev.external.build.command#` when calling dev-workshop.build."
+        },
+        "dev-workshop.dev.build.forceRecipeUsage": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Force the use the recipe mechanism even if some magic comments are present."
+        },
+        "dev-workshop.dev.outDir": {
+          "scope": "resource",
+          "type": "string",
+          "default": "%DIR%",
+          "markdownDescription": "The directory where the extension tries to find project files (e.g., PDF and SyncTeX files) are located. Both relative and absolute paths are supported. Relative path start from the root file location, so beware if it is located in sub-directory. The path must not contain a trailing slash. The Dev toolchain should output files to this path. For a list of supported placeholders, please visit https://github.com/khulnasoft/devenv/wiki/Compile#placeholders. Note that if this config is set to %DIR% (default value) or %DIR_W32%, the extension will try to parse the last Dev tools used and look for `-out-directory=` and `-outdir=`, and automatically determine the output directory. This means that you can safely ignore this config if you use `devmk` and do not manually `mv` the output files in your recipe."
+        },
+        "dev-workshop.dev.jobname": {
+          "scope": "resource",
+          "type": "string",
+          "default": "",
+          "markdownDescription": "The jobname argument of the compiling tool, which is used by the extension to find project files (e.g., PDF and SyncTeX files). This config should be set identical to the value provided to the `-jobname=` argument, and should not have placeholders. Leave the config empty to ignore jobname and keep the default behavior."
+        },
+        "dev-workshop.dev.build.rootfileInStatus": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Whether to include the name of the root file being built in the status bar. You can use only 2 placeholders: `%WORKSPACE_FOLDER%`, `%RELATIVE_DIR%`. Please visit https://github.com/khulnasoft/devenv/wiki/Compile#placeholders for their definitions."
+        },
+        "dev-workshop.dev.texDirs": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "List of directories where to look for extra input `.tex` files. \nAbsolute paths are required. You may also need to set the environment variable `TEXINPUTS` properly for the Dev compiler to find the `.tex` files, see the `env` parameter of [recipes](https://github.com/khulnasoft/devenv/wiki/Compile#dev-recipes)."
+        },
+        "dev-workshop.dev.verbatimEnvs": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "verbatim",
+            "lstlisting",
+            "minted"
+          ],
+          "markdownDescription": "List environments with verbatim-like content. These environments are stripped off the `.tex` files before any parsing occurs. Note that this variable has no effect on syntax highlighting."
+        },
+        "dev-workshop.kpsewhich.path": {
+          "scope": "window",
+          "type": "string",
+          "default": "kpsewhich",
+          "markdownDescription": "Define the location of the kpsewhich executable file."
+        },
+        "dev-workshop.kpsewhich.class.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Use kpsewhich as defined by `#dev-workshop.kpsewhich.path#` to resolve dev class paths for intellisense parsing."
+        },
+        "dev-workshop.kpsewhich.bibtex.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Use kpsewhich as defined by `#dev-workshop.kpsewhich.path#` to resolve bibliography file paths for intellisense parsing."
+        },
+        "dev-workshop.dev.bibDirs": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "List of directories where to look for `.bib` files. Absolute paths are required. This setting is only used by the intellisense feature, you may also need to set the environment variable `BIBINPUTS` properly for the Dev compiler to find the `.bib` files."
+        },
+        "dev-workshop.dev.search.rootFiles.include": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/*.tex",
+            "**/*.rnw",
+            "**/*.Rnw"
+          ],
+          "markdownDescription": "Patterns of files to consider for the root detection mechanism. Relative paths are computed from the workspace folder. To detect the root file and the tex file tree, we parse all the `.tex` listed here. If you want to specify all `.tex` files inside directory, say `foo`, and all its subdirectories recursively, you need to use `**/foo/**/*.tex`. If you only want to match `.tex` files at the top level of the workspace, use `*.tex`. For more details, see https://github.com/khulnasoft/devenv/wiki/Compile#multi-file-projects"
+        },
+        "dev-workshop.dev.search.rootFiles.exclude": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "Patterns of files to exclude from the root detection mechanism. See also `#dev-workshop.dev.search.rootFiles.include#`. For more details, see the https://github.com/khulnasoft/devenv/wiki/Compile#multi-file-projects."
+        },
+        "dev-workshop.dev.rootFile.useSubFile": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "When the `subfile` package is used, either the main file or any subfile containing `\\documentclass[main.tex]{subfile}` can be Deving. When `true`, the extension uses the subfile as the rootFile for the `autobuild`, `clean` and `synctex` commands."
+        },
+        "dev-workshop.dev.rootFile.doNotPrompt": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "When the `subfile` package is used, either the main file or any subfile containing `\\documentclass[main.tex]{subfile}` can be Deving. When `false`, the `build` and `view` commands  ask the user's choice first. When `true`, the subfile is used when `#dev-workshop.dev.rootFile.useSubFile#` is also `true`, otherwise the rootFile is used."
+        },
+        "dev-workshop.dev.rootFile.indicator": {
+          "scope": "resource",
+          "type": "string",
+          "default": "\\documentclass[]{}",
+          "enum": [
+            "\\documentclass[]{}",
+            "\\begin{document}"
+          ],
+          "markdownDescription": "Determine if the root file is detected based on the presence of \\documentclass[]{} or \\begin{document}."
+        },
+        "dev-workshop.dev.watch.delay": {
+          "scope": "window",
+          "type": "number",
+          "default": 250,
+          "markdownDescription": "Defines the time delay before confirming a non-binary file is indeed deleted. Increase this value if your toolchain involves external file changes with a delete-then-create pattern. Dev Workshop internally monitors file change events and initiates auto-builds, intellisense parsing, dev importing, and/or PDF viewing refresh. We use this config to control the file polling delay before confirming that the file deletion is not a delete-then-create."
+        },
+        "dev-workshop.dev.watch.pdf.delay": {
+          "scope": "window",
+          "type": "number",
+          "default": 250,
+          "markdownDescription": "Defines the time delay before confirming a PDF-like binary file is fully changed. Increase this value if you encounter repeated viewer refreshes and/or loss of PDF scrolling position. Dev Workshop internally monitors file change events and initiates auto-builds and/or PDF viewing refresh. When Dev is changing large files (particularly binary files like PDFs), multiple consecutive file change events may be emitted, potentially causing file corruption issues. We use this config to control the file polling delay before confirming that the file change has been stabilized. Note that non-binary files such as `.tex`, `.bib`, and `.cls` are not affected."
+        },
+        "dev-workshop.dev.watch.files.ignore": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/*.bbx",
+            "**/*.bbl",
+            "**/*.cbx",
+            "**/*.cfg",
+            "**/*.clo",
+            "**/*.cnf",
+            "**/*.def",
+            "**/*.dfu",
+            "**/*.enc",
+            "**/*.fd",
+            "**/*.fmt",
+            "**/*.lbx",
+            "**/*.map",
+            "**/*.mkii",
+            "**/*.pfb",
+            "**/*.tfm",
+            "**/*.vf",
+            "**/*.code.tex",
+            "**/*.sty",
+            "**/texmf-{dist,var}/**",
+            "**/Local/MiKTeX/**",
+            "**/Local/Programs/MiKTeX/**",
+            "**/Roaming/MiKTeX/**",
+            "**/Program*/MiKTeX*/**",
+            "**/.miktex/texmfs/**",
+            "/var/cache/miktex-texmf/**",
+            "/usr/local/share/miktex-texmf/**",
+            "**/Library/Application Support/MiKTeX/texmfs/**",
+            "/dev/null"
+          ],
+          "markdownDescription": "Files to ignore from the watching mechanism, i.e., no intellisense or build-on-file-change. However, document structure/outline and build-on-save won't be affected. This property must be an array of glob patterns. The patterns are matched against the absolute file path. To ignore everything inside the `texmf` tree, `**/texmf/**` can be used."
+        },
+        "dev-workshop.dev.autoBuild.run": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "never",
+            "onSave",
+            "onFileChange"
+          ],
+          "enumDescriptions": [
+            "Never run auto build",
+            "Auto build whenever a file is saved",
+            "Auto build whenever a dependency file changes on disk"
+          ],
+          "default": "onFileChange",
+          "markdownDescription": "When the extension shall auto build Dev project using the default (first) recipe. \n- `onSave` builds the project upon saving a `tex` file in vscode.\n- `onFileChange` builds the project upon detecting a file change in any of the dependencies, even modified by other applications.\n\n Note that `onSave` is more restrictive than `onFileChange` "
+        },
+        "dev-workshop.dev.autoBuild.interval": {
+          "scope": "resource",
+          "type": "integer",
+          "default": 1000,
+          "markdownDescription": "The minimal time interval in milliseconds for an auto build to trigger after the previous (manual and auto) build. This value is recommended to be greater than ~500."
+        },
+        "dev-workshop.dev.autoBuild.cleanAndRetry.enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Delete Dev auxiliary files when errors occur during build and retry. This property defines whether Dev Workshop will try to clean and build the project once again after errors happen in the build toolchain."
+        },
+        "dev-workshop.dev.build.clearLog.everyRecipeStep.enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Clear the Dev Compiler logs before every step of a recipe. Set this property to false to keep the logs of all tools in a recipe."
+        },
+        "dev-workshop.dev.autoClean.run": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "never",
+            "onFailed",
+            "onSucceeded",
+            "onBuilt"
+          ],
+          "enumDescriptions": [
+            "Never clean the project",
+            "Clean compilation fails",
+            "Clean compilation successes",
+            "Clean after build, be it successful or not"
+          ],
+          "default": "never",
+          "markdownDescription": "When Dev auxiliary files should be deleted. The folder to be cleaned is defined in `#dev-workshop.dev.outDir#`.\n- `onFailed` cleans the project when compilation fails.\n- `onBuilt` cleans the project when compilation is done, whether successful or failed."
+        },
+        "dev-workshop.dev.clean.subfolder.enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Delete Dev auxiliary files recursively in sub-folders of `#dev-workshop.dev.outDir#`. Note that sub-folders are not removed."
+        },
+        "dev-workshop.dev.clean.fileTypes": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "%DOCFILE%.aux",
+            "%DOCFILE%.bbl",
+            "%DOCFILE%.blg",
+            "%DOCFILE%.idx",
+            "%DOCFILE%.ind",
+            "%DOCFILE%.lof",
+            "%DOCFILE%.lot",
+            "%DOCFILE%.out",
+            "%DOCFILE%.toc",
+            "%DOCFILE%.acn",
+            "%DOCFILE%.acr",
+            "%DOCFILE%.alg",
+            "%DOCFILE%.glg",
+            "%DOCFILE%.glo",
+            "%DOCFILE%.gls",
+            "%DOCFILE%.fls",
+            "%DOCFILE%.log",
+            "%DOCFILE%.fdb_devmk",
+            "%DOCFILE%.snm",
+            "%DOCFILE%.synctex(busy)",
+            "%DOCFILE%.synctex.gz(busy)",
+            "%DOCFILE%.nav",
+            "%DOCFILE%.vrb"
+          ],
+          "markdownDescription": "Files to clean when `#dev-workshop.dev.clean.method#` is set to `glob`. This property must be an array of strings. Placeholders listed in https://github.com/khulnasoft/devenv/wiki/Compile#placeholders can be used to populate the glob strings. File globs such as `*.removeme`, `something?.aux` can be used. Users can also specify glob patterns like `emptyfolder*/` to remove empty folders. Non-empty folders will be ignored. The folder globs must end with a slash and the last path component must not contain the globstar `**`, otherwise the folders will not be removed. The following globs patterns are correct `['abc/', 'abc*/', '**/abc*/', 'abc/**/def/']` but these are not ['**', '**/', 'abc/**', 'abc/**/', 'abc/def**/', 'abc/d**ef/']`."
+        },
+        "dev-workshop.dev.clean.command": {
+          "scope": "resource",
+          "type": "string",
+          "default": "devmk",
+          "markdownDescription": "The command to be used to remove temporary files when `#dev-workshop.dev.clean.method#` is set to `command`."
+        },
+        "dev-workshop.dev.clean.args": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "-outdir=%OUTDIR%",
+            "-c",
+            "%TEX%"
+          ],
+          "markdownDescription": "The arguments of `#dev-workshop.dev.clean.command#`. Placeholders listed in https://github.com/khulnasoft/devenv/wiki/Compile#placeholders can be used to populate the argument strings. Besides, an additional `%TEX%` placeholder refers to the full path of the tex file from which the clean command is called."
+        },
+        "dev-workshop.dev.clean.method": {
+          "scope": "resource",
+          "type": "string",
+          "default": "command",
+          "enum": [
+            "glob",
+            "command"
+          ],
+          "markdownEnumDescriptions": [
+            "Clean all the files located in `#dev-workshop.dev.outDir#` and matching the glob patterns listed in `#dev-workshop.dev.clean.fileTypes#`.",
+            "Run `#dev-workshop.dev.clean.command#` to clean temporary files."
+          ],
+          "markdownDescription": "Define how temporary files will be cleaned."
+        },
+        "dev-workshop.dev.option.maxPrintLine.enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Add `--max-print-line` option to Dev build commands. This flag tells some MikTeX compilers to produce non hard wrapped log messages. Non hard wrapped log messages are required for the _Problem_ Pane to properly display messages."
+        },
+        "dev-workshop.view.outline.sections": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "part",
+            "chapter",
+            "section",
+            "subsection",
+            "subsubsection"
+          ],
+          "markdownDescription": "The section names of Dev outline hierarchy. It is also used by the folding mechanism. This property is an array of case-sensitive strings in the order of document structure hierarchy. For multiple tags in the same level, separate the tags with `|` as delimiters, e.g., `section|alternative`."
+        },
+        "dev-workshop.view.outline.commands": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "label"
+          ],
+          "markdownDescription": "The names of the commands to be shown in the outline/structure views. The commands must be called in the form `\\commandname{arg}`."
+        },
+        "dev-workshop.view.outline.follow.editor": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Whether scrolling the editor will also reveal corresponding structure items."
+        },
+        "dev-workshop.view.outline.sync.viewer": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Whether clicking on structure items will also call synctex to scroll the PDF viewer to the corresponding location."
+        },
+        "dev-workshop.view.outline.floats.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show the floating objects (figures and tables) in the outline/structure views."
+        },
+        "dev-workshop.view.outline.floats.number.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show the float number in the outline/structure views."
+        },
+        "dev-workshop.view.outline.floats.caption.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show the float caption in the outline/structure views."
+        },
+        "dev-workshop.view.outline.numbers.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show the sectioning numbers in the outline/structure views."
+        },
+        "dev-workshop.view.autoFocus.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Auto focus the Dev view when switching from non-tex to tex files. This will cause the view to appear consistently upon activating the extension."
+        },
+        "dev-workshop.view.pdf.viewer": {
+          "scope": "window",
+          "type": "string",
+          "default": "tab",
+          "enum": [
+            "browser",
+            "tab",
+            "external",
+            "legacy",
+            "singleton"
+          ],
+          "markdownDescription": "The default PDF viewer.",
+          "enumDescriptions": [
+            "Open PDF with the default web browser.",
+            "Open PDF with the built-in tab viewer.",
+            "[Experimental] Open PDF with the external viewer set in \"View > Pdf > External: command\".",
+            "[Legacy] Open PDF with the built-in tab viewer with vscode WebView API.",
+            "[Legacy] Open PDF with the built-in tab viewer with vscode WebView API, reveal existing one if possible."
+          ]
+        },
+        "dev-workshop.view.pdf.tab.editorGroup": {
+          "scope": "window",
+          "type": "string",
+          "default": "right",
+          "enum": [
+            "current",
+            "left",
+            "right",
+            "above",
+            "below"
+          ],
+          "markdownDescription": "The editor group in which to open the tab viewer.",
+          "enumDescriptions": [
+            "Use the current editor group",
+            "Put the viewer tab in a new group on the left of the current one",
+            "Put the viewer tab in a new group on the right of the current one",
+            "Put the viewer tab in a new group above the current one",
+            "Put the viewer tab in a new group below the current one"
+          ]
+        },
+        "dev-workshop.view.pdf.ref.viewer": {
+          "type": "string",
+          "default": "auto",
+          "enum": [
+            "auto",
+            "tabOrBrowser",
+            "external"
+          ],
+          "markdownDescription": "PDF viewer used for [View on PDF] link on \\ref."
+        },
+        "dev-workshop.viewer.pdf.internal.port": {
+          "scope": "window",
+          "type": "number",
+          "default": 0,
+          "markdownDescription": "Define the port to listen on for communicating with the internal viewer. The default value \"0\" means the port is chosen randomly by the application. If this config is set, only one Visual Studio Code instance with this extension active can be opened. Otherwise, a port conflict may happen."
+        },
+        "dev-workshop.view.pdf.internal.synctex.keybinding": {
+          "scope": "window",
+          "type": "string",
+          "default": "ctrl-click",
+          "enum": [
+            "ctrl-click",
+            "double-click"
+          ],
+          "markdownDescription": " Which keybinding to use for the internal viewer for reverse synctex. `ctrl`/`cmd` + click (default) or double click."
+        },
+        "dev-workshop.viewer.pdf.internal.keyboardEvent": {
+          "scope": "window",
+          "type": "string",
+          "default": "auto",
+          "enum": [
+            "auto",
+            "force",
+            "never"
+          ],
+          "markdownDescription": "Rebroadcasting KeyboardEvent on the internal viewers. If keyboard shortcuts on the internal viewer do not work well, change this setting."
+        },
+        "dev-workshop.view.pdf.external.viewer.command": {
+          "scope": "window",
+          "type": "string",
+          "default": "",
+          "markdownDescription": "The command to execute when using external viewer. This function is not officially supported."
+        },
+        "dev-workshop.view.pdf.external.viewer.args": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "%PDF%"
+          ],
+          "markdownDescription": "The arguments for `#dev-workshop.view.pdf.external.viewer.command#` when using external viewer. This function is not officially supported. %PDF% is the placeholder for the absolute path to the generated PDF file."
+        },
+        "dev-workshop.view.pdf.external.synctex.command": {
+          "scope": "window",
+          "type": "string",
+          "default": "",
+          "markdownDescription": "The command to execute when forward synctex to external viewer. This function is not officially supported."
+        },
+        "dev-workshop.view.pdf.external.synctex.args": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "%LINE%",
+            "%PDF%",
+            "%TEX%"
+          ],
+          "markdownDescription": "The arguments for `#dev-workshop.view.pdf.external.synctex.args#` when forward synctex to external viewer. %LINE% is the line number, %PDF% is the placeholder for the absolute path to the generated PDF file, and %TEX% is the source Dev file path with `.tex` extension from which syncTeX is fired."
+        },
+        "dev-workshop.view.pdf.zoom": {
+          "scope": "window",
+          "type": "string",
+          "default": "auto",
+          "markdownDescription": "The default zoom level of the PDF viewer. This default value will be passed to the viewer upon opening. Possible values are `auto`, `page-actual`, `page-fit`, `page-width`, and one-based scale values (e.g., 0.5 for 50%, 2.0 for 200%)."
+        },
+        "dev-workshop.view.pdf.trim": {
+          "scope": "window",
+          "type": "number",
+          "default": 0,
+          "markdownDescription": "The default trim percentage of the PDF viewer. This should be an integer between 0 and 99, indicating the portion of PDF to be trimmed. For example, setting the value to `10` means that 10% of the height and width of PDF pages are trimmed off."
+        },
+        "dev-workshop.view.pdf.scrollMode": {
+          "scope": "window",
+          "type": "number",
+          "default": 0,
+          "markdownDescription": "The default scroll mode of the PDF viewer. This default value will be passed to the viewer upon opening. Possible values are `0` (vertical), `1`(horizontal), `2` (wrapped), `3` (page)."
+        },
+        "dev-workshop.view.pdf.spreadMode": {
+          "scope": "window",
+          "type": "number",
+          "default": 0,
+          "markdownDescription": "The default spread mode of the PDF viewer. This default value will be passed to the viewer upon opening. Possible values are `0` (none), `1` (odd) and `2` (even)."
+        },
+        "dev-workshop.view.pdf.hand": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Define if the hand tool is enabled by default in the PDF viewer."
+        },
+        "dev-workshop.view.pdf.invertMode.enabled": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "auto",
+            "always",
+            "compat",
+            "never"
+          ],
+          "default": "compat",
+          "markdownDescription": "Enable the CSS invert filter.",
+          "enumDescriptions": [
+            "Enable the invert filter when using a dark theme.",
+            "Always enable invert filter.",
+            "Enable the invert filter only if `invert > 0`.",
+            "Disable the invert filter"
+          ]
+        },
+        "dev-workshop.view.pdf.invert": {
+          "scope": "window",
+          "type": "number",
+          "default": 0,
+          "markdownDescription": " Define the CSS invert filter level of the PDF viewer. This config can invert the color of PDF. Possible values are from 0 to 1."
+        },
+        "dev-workshop.view.pdf.invertMode.brightness": {
+          "scope": "window",
+          "type": "number",
+          "default": 1,
+          "markdownDescription": " Define the CSS brightness filter level of the PDF viewer when the invert mode is enabled. Possible values are from 0 to 2."
+        },
+        "dev-workshop.view.pdf.invertMode.grayscale": {
+          "scope": "window",
+          "type": "number",
+          "default": 0.6,
+          "markdownDescription": " Define the CSS grayscale filter level of the PDF viewer when the invert mode is enabled. Possible values are from 0 to 1."
+        },
+        "dev-workshop.view.pdf.invertMode.hueRotate": {
+          "scope": "window",
+          "type": "number",
+          "default": 180,
+          "markdownDescription": " Define the CSS hue-rotate filter angle of the PDF viewer when the invert mode is enabled. Possible values are from 0 to 360."
+        },
+        "dev-workshop.view.pdf.invertMode.sepia": {
+          "scope": "window",
+          "type": "number",
+          "default": 0,
+          "markdownDescription": " Define the CSS sepia filter level of the PDF viewer when the invert mode is enabled. Possible values are from 0 to 1."
+        },
+        "dev-workshop.view.pdf.color.light.pageColorsForeground": {
+          "scope": "window",
+          "type": "string",
+          "default": "",
+          "markdownDescription": " The foreground color of the PDF document 1) in tab viewer when the vscode color theme is light, and 2) in browser when the OS theme is light. The string must represent a color in HTML."
+        },
+        "dev-workshop.view.pdf.color.light.pageColorsBackground": {
+          "scope": "window",
+          "type": "string",
+          "default": "",
+          "markdownDescription": " The background color of the PDF document 1) in tab viewer when the vscode color theme is light, and 2) in browser when the OS theme is light. The string must represent a color in HTML."
+        },
+        "dev-workshop.view.pdf.color.light.backgroundColor": {
+          "scope": "window",
+          "type": "string",
+          "default": "#ffffff",
+          "markdownDescription": " The background color of the viewer 1) in tab viewer when the vscode color theme is light, and 2) in browser when the OS theme is light. The string must represent a color in HTML."
+        },
+        "dev-workshop.view.pdf.color.light.pageBorderColor": {
+          "scope": "window",
+          "type": "string",
+          "default": "lightgrey",
+          "markdownDescription": " The border color of the PDF pages 1) in tab viewer when the vscode color theme is light, and 2) in browser when the OS theme is light. The string must represent a color in HTML."
+        },
+        "dev-workshop.view.pdf.color.dark.pageColorsForeground": {
+          "scope": "window",
+          "type": "string",
+          "default": "",
+          "markdownDescription": " The foreground color of the PDF document 1) in tab viewer when the vscode color theme is dark, and 2) in browser when the OS theme is dark. The string must represent a color in HTML."
+        },
+        "dev-workshop.view.pdf.color.dark.pageColorsBackground": {
+          "scope": "window",
+          "type": "string",
+          "default": "",
+          "markdownDescription": " The background color of the PDF document 1) in tab viewer when the vscode color theme is dark, and 2) in browser when the OS theme is dark. The string must represent a color in HTML."
+        },
+        "dev-workshop.view.pdf.color.dark.backgroundColor": {
+          "scope": "window",
+          "type": "string",
+          "default": "#ffffff",
+          "markdownDescription": " The background color of the viewer 1) in tab viewer when the vscode color theme is dark, and 2) in browser when the OS theme is dark. The string must represent a color in HTML."
+        },
+        "dev-workshop.view.pdf.color.dark.pageBorderColor": {
+          "scope": "window",
+          "type": "string",
+          "default": "lightgrey",
+          "markdownDescription": " The border color of the PDF pages 1) in tab viewer when the vscode color theme is dark, and 2) in browser when the OS theme is dark. The string must represent a color in HTML."
+        },
+        "dev-workshop.synctex.path": {
+          "scope": "window",
+          "type": "string",
+          "default": "synctex",
+          "markdownDescription": "Define the location of SyncTeX executive file. Additional arguments, e.g., synctex modes and position of click, will be appended to this command."
+        },
+        "dev-workshop.synctex.indicator": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "none",
+            "circle",
+            "rectangle"
+          ],
+          "enumDescriptions": [
+            "Hide the indicator.",
+            "Indicates a possible location with a red circular SyncTeX indicator.",
+            "Indicates the whole line selected in the TeX file with a red rectangular SyncTeX indicator. Only valid when SyncTeX binary is executable."
+          ],
+          "default": "rectangle",
+          "markdownDescription": "Define the visibility and style of SyncTeX indicator after a forward SyncTeX in the PDF viewer."
+        },
+        "dev-workshop.synctex.afterBuild.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Execute forward synctex at cursor position after compiling Dev project."
+        },
+        "dev-workshop.linting.chktex.enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Enable linting Dev with `chktex`. Check `#dev-workshop.linting.run#` to control when `chktex` is executed if this config is set to `true."
+        },
+        "dev-workshop.linting.lacheck.enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Enable linting Dev with `lacheck`. Check `#dev-workshop.linting.run#` to control when `lacheck` is executed if this config is set to `true."
+        },
+        "dev-workshop.linting.run": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "onSave",
+            "onType"
+          ],
+          "enumDescriptions": [
+            "Lint the whole Dev project upon saving",
+            "Lint the active document when input is stopped"
+          ],
+          "default": "onSave",
+          "markdownDescription": "When Dev should be linted.\n- `onSave`: the whole Dev project will be linted upon saving.\n- `onType`: the active document will be linted when input is stopped for a period of time defined in `#dev-workshop.linting.delay#`. It also implies `onSave`."
+        },
+        "dev-workshop.linting.chktex.exec.path": {
+          "scope": "window",
+          "type": "string",
+          "default": "chktex",
+          "markdownDescription": "Define the location of ChkTeX executive file. This command will be joint with `#dev-workshop.linting.chktex.exec.args#` and required arguments to form a complete command of ChkTeX."
+        },
+        "dev-workshop.linting.chktex.exec.args": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "-wall",
+            "-n22",
+            "-n30",
+            "-e16",
+            "-q"
+          ],
+          "markdownDescription": "Linter arguments to check Dev syntax of the current file state in real time with ChkTeX. Arguments must be in separate strings in the array. Additional arguments, i.e., `-I0 -f%f:%l:%c:%d:%k:%n:%m\\n` will be appended when constructing the command. Current file contents will be piped to the command through stdin."
+        },
+        "dev-workshop.linting.chktex.convertOutput.column.enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable converting ChkTeX outputs' column numbers for non-ASCII characters."
+        },
+        "dev-workshop.linting.chktex.convertOutput.column.chktexrcTabSize": {
+          "scope": "resource",
+          "type": "number",
+          "default": -1,
+          "markdownDescription": "Write the `TabSize` number from `.chktexrc`. The default value \"-1\" means that Dev Workshop will try to find `.chktexrc` and to read the value from it."
+        },
+        "dev-workshop.linting.delay": {
+          "scope": "resource",
+          "type": "number",
+          "default": 500,
+          "markdownDescription": "Defines the delay in milliseconds for linter to wait after stopped typing. This config only matters when `#dev-workshop.linting.run#` is set to `onType`."
+        },
+        "dev-workshop.linting.lacheck.exec.path": {
+          "scope": "window",
+          "type": "string",
+          "default": "lacheck",
+          "markdownDescription": "Define the location of LaCheck executive file."
+        },
+        "dev-workshop.check.duplicatedLabels.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable checking for duplicated labels. A new check is triggered every time the intellisense data is updated, see `#dev-workshop.intellisense.update.aggressive.enabled#`."
+        },
+        "dev-workshop.texcount.path": {
+          "scope": "window",
+          "type": "string",
+          "default": "texcount",
+          "markdownDescription": "Define the location of TeXCount executive file/script. This command will be joint with `#dev-workshop.texcount.args#` and required arguments to form a complete command of TeXCount."
+        },
+        "dev-workshop.texcount.args": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "TeXCount arguments to count words in the Dev documents of the entire project from the root file, or the current document. Arguments must be in separate strings in the array. Additional arguments, i.e., `-merge %DOC%` for the project and the current document path for counting current file will be appended when constructing the command."
+        },
+        "dev-workshop.texcount.autorun": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "onSave",
+            "never"
+          ],
+          "enumDescriptions": [
+            "Count words in the current document",
+            "Never automatically call texcount"
+          ],
+          "default": "never",
+          "markdownDescription": "When to call `texcount`. Default is never."
+        },
+        "dev-workshop.texcount.interval": {
+          "scope": "resource",
+          "type": "number",
+          "default": 1000,
+          "markdownDescription": "The minimal time interval between two consecutive runs of `texcount` in milliseconds when `#dev-workshop.texcount.run#` is set to `onSave`."
+        },
+        "dev-workshop.intellisense.update.aggressive.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Defines whether the extension aggressively parses the changed content after stopped typing. Disable this config will let the extension only update intellisense after saving changed files."
+        },
+        "dev-workshop.intellisense.update.delay": {
+          "scope": "window",
+          "type": "number",
+          "default": 1000,
+          "markdownDescription": "Defines the delay in milliseconds for the extension to update current active file content for intellisense after stopped typing. This config works only when `intellisense.update.aggressive.enabled` is enabled. Lower this value to let the extension know newly defined commands/references/environments more quickly, at the cost of more frequent content parsing: more computational burden."
+        },
+        "dev-workshop.intellisense.atSuggestion.user": {
+          "scope": "window",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "markdownDescription": "Dictionary of `\"@prefix\": \"snippet command\"` to add to, replace, or remove the default suggestions in `data/at-suggestions.json`. The key of the dictionary is the triggering string, which **must** starts with `@` regardless of `#dev-workshop.intellisense.atSuggestion.trigger.dev#`. The value of the dictionary is the snippet to be inserted. If the key is identical to a default snippet defined in `data/at-suggestions.json`, the new value in the dictionary is used for suggestion. If the value is an empty string, the snippet is removed from suggestion. For example, `{ \"@.\": \"\\cdot\", \"@6\": \"\" }`."
+        },
+        "dev-workshop.intellisense.command.user": {
+          "scope": "window",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "markdownDescription": "Dictionary of `\"command name\": \"command snippet\"` to add to, replace, or remove the default ones in `data/commands.json`. The key of the dictionary is the command name with optional braces indicating the command arguments. The value of the dictionary is the snippet to be inserted. If the key is identical to a default command suggestion defined in `data/commands.json`, the new value in the dictionary is used for suggestion. If the value is an empty string, the command is removed from suggestion. Leading backslashes will be added to both the name and snippet by the extension, so don't include them in this config. For example, `{\"mycommand[]{}\": \"notsamecommand[${2:option}]{$TM_SELECTED_TEXT$1}\", \"parbox{}{}\": \"parbox{${2:width}}{$TM_SELECTED_TEXT$1}\", \"overline{}\": \"\"}` adds a new command with name `mycommand[]{} that inserts `\\notsamecommand[]{}`, replaces the default snippet of `\\parbox{}{}` to make it include current selected text, and removes `\\overline{}` from suggestion."
+        },
+        "dev-workshop.intellisense.citation.type": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "inline",
+            "browser"
+          ],
+          "default": "inline",
+          "markdownDescription": "Defines which type of hint to show when intellisense provides citation suggestions.",
+          "enumDescriptions": [
+            "Use the inline intellisense to provide citation completion items.",
+            "Use a dropdown menu to provide citation completion items."
+          ]
+        },
+        "dev-workshop.intellisense.citation.label": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "bibtex key",
+            "title",
+            "authors"
+          ],
+          "default": "bibtex key",
+          "markdownDescription": "Defines what to show as suggestion labels when intellisense provides citation suggestions in inline mode.",
+          "enumDescriptions": [
+            "Show bibtex keys in the inline mode.",
+            "Show publication titles in the inline mode.",
+            "Show publication authors in the inline mode."
+          ]
+        },
+        "dev-workshop.intellisense.citation.format": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "author",
+            "title",
+            "journal",
+            "publisher",
+            "booktitle",
+            "year"
+          ],
+          "markdownDescription": "List of fields to display for citation preview and intellisense. This list is also used as the filter text to narrow down the intellisense suggestions."
+        },
+        "dev-workshop.intellisense.triggers.dev": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "Additional trigger characters for intellisense of Dev documents."
+        },
+        "dev-workshop.intellisense.atSuggestion.trigger.dev": {
+          "scope": "window",
+          "type": "string",
+          "default": "@",
+          "markdownDescription": "Character to trigger snippet suggestions as part of intellisense. Set this variable to `''` to deactivate these suggestions."
+        },
+        "dev-workshop.intellisense.file.exclude": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/*.aux",
+            "**/*.bbl",
+            "**/*.bcf",
+            "**/*.blg",
+            "**/*.idx",
+            "**/*.ind",
+            "**/*.lof",
+            "**/*.lot",
+            "**/*.out",
+            "**/*.toc",
+            "**/*.acn",
+            "**/*.acr",
+            "**/*.alg",
+            "**/*.glg",
+            "**/*.glo",
+            "**/*.gls",
+            "**/*.ist",
+            "**/*.fls",
+            "**/*.log",
+            "**/*.nav",
+            "**/*.snm",
+            "**/*.fdb_devmk",
+            "**/*.synctex.gz",
+            "**/*.run.xml"
+          ],
+          "markdownDescription": "Patterns to ignore in file completion"
+        },
+        "dev-workshop.intellisense.file.base": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "root relative",
+            "file relative",
+            "both"
+          ],
+          "default": "root relative",
+          "markdownDescription": "Specify the base directory for file completion",
+          "enumDescriptions": [
+            "Completion from the root file directory",
+            "Completion from the current file directory",
+            "both"
+          ]
+        },
+        "dev-workshop.intellisense.label.command": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "label",
+            "linelabel"
+          ],
+          "markdownDescription": "The name of Dev commands that indicates a label definition. The command must accept one mandatory argument of the label reference string, e.g, \\linelabel{ref-str}."
+        },
+        "dev-workshop.intellisense.unimathsymbols.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "When `\\` is typed, show unimath symbols in the dropdown selector."
+        },
+        "dev-workshop.intellisense.subsuperscript.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Auto-complete sub- and super-scripts from the current project."
+        },
+        "dev-workshop.intellisense.package.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Auto-complete commands and environments from used packages."
+        },
+        "dev-workshop.intellisense.package.extra": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "List of extra packages to always add to the auto-completion mechanism. When `#dev-workshop.intellisense.package.enabled#` is set to `true`, the commands and environments defined in these extra packages will be added to the intellisense suggestions."
+        },
+        "dev-workshop.intellisense.package.exclude": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "List of packages to exclude from the auto-completion mechanism. When `#dev-workshop.intellisense.package.enabled#` is set to `true`, the commands and environments defined in these packages will not be added to the intellisense suggestions. This setting has a higher priority over `#dev-workshop.intellisense.package.extra#`. You may include the string \"lw-default\" in the list to remove all default commands and environments."
+        },
+        "dev-workshop.intellisense.package.env.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "If true, every environment provided by an included package is available by a snippet `\\envname`. Only applies when `#dev-workshop.intellisense.package.enabled#` is true. You can use only 2 placeholders: `%WORKSPACE_FOLDER%`, `%RELATIVE_DIR%`. Please visit https://github.com/khulnasoft/devenv/wiki/Compile#placeholders for their definitions."
+        },
+        "dev-workshop.intellisense.package.dirs": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "List of extra directories to look for package completion files in addition to those provided by the extension. Files found in these directories have a higher priority over the default ones. Devenv bundles a limited number of package macro/env suggestions. Additional ones can be downloaded from https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fkhulnasoft%2FDevenv%2Ftree%2Fmaster%2Fdev%2Fpackages . For custom packages, please visit https://github.com/khulnasoft/devenv/wiki/Intellisense#commands-starting-with- to learn how to generate these files. This setting is only relevant when `#dev-workshop.intellisense.package.env.enabled#` is true."
+        },
+        "dev-workshop.intellisense.includegraphics.preview.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable preview for `\\includegraphics` completion."
+        },
+        "dev-workshop.message.badbox.show": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "both",
+            "overfull",
+            "underfull",
+            "none"
+          ],
+          "default": "both",
+          "markdownDescription": "Show badbox information in the problems panel."
+        },
+        "dev-workshop.message.biberlog.exclude": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "Exclude biber log messages matching the given regexp from the problems panel."
+        },
+        "dev-workshop.message.bibtexlog.exclude": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "Exclude bibtex log messages matching the given regexp from the problems panel."
+        },
+        "dev-workshop.message.devlog.exclude": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "Exclude dev log messages matching the given regexp from the problems panel."
+        },
+        "dev-workshop.message.information.show": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Display information messages in popup notifications."
+        },
+        "dev-workshop.message.warning.show": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Display warning messages in popup notifications."
+        },
+        "dev-workshop.message.error.show": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Display error messages in popup notifications."
+        },
+        "dev-workshop.message.log.show": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Display Dev Workshop debug log in output panel. This property defines whether Dev Workshop will output its debug log to the log panel."
+        },
+        "dev-workshop.message.convertFilenameEncoding": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Convert the encoding of filenames if necessary when displaying them in the problems panel."
+        },
+        "dev-workshop.devindent.path": {
+          "scope": "window",
+          "type": "string",
+          "default": "devindent",
+          "markdownDescription": "Define the location of the devindent executable file."
+        },
+        "dev-workshop.devindent.args": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "-c",
+            "%DIR%/",
+            "%TMPFILE%",
+            "-y=defaultIndent: '%INDENT%'"
+          ],
+          "markdownDescription": "Define the command line arguments for devindent. In the addition to the placeholders defined at https://github.com/khulnasoft/devenv/wiki/Compile#placeholders, the following placeholders are accepted\n- %TMPFILE%: The full path of the raw TeX file to be formatted. At this moment you need to use it as an input file of `devindent`.\n- %INDENT%: The indent character of the file, typically `\t`, `' '`, `' '`.\n\nNote that the option `-c` requires a trailing slash."
+        },
+        "dev-workshop.docker.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Enable docker-based Dev distribution support. Do not set this item to `true` unless you are aware of what it means. This extension will use the images defined in `#dev-workshop.docker.image.dev#` to execute `devmk`, `synctex`, `texcount`, and `devindent`."
+        },
+        "dev-workshop.docker.image.dev": {
+          "scope": "window",
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Define the image for `devmk`, `synctex`, `texcount`, and `devindent`."
+        },
+        "dev-workshop.docker.path": {
+          "scope": "window",
+          "type": "string",
+          "default": "docker",
+          "markdownDescription": "Docker (or Podman) executable name or path."
+        },
+        "dev-workshop.showContextMenu": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Enable the Dev contextual menu. This menu is deactivated as it is available through the new Dev badge. Just set this variable to `true` to recover the menu."
+        },
+        "dev-workshop.bind.enter.key": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable the automatic insertion of `\\item` on a newline when pressing `Enter` in a line starting in `\\item`."
+        },
+        "dev-workshop.bind.altKeymap.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Use alternative keymap combo, i.e., `ctrl`+`l` `alt`+`key`, to replace the default `ctrl`/`cmd`+`alt` shortcuts."
+        },
+        "dev-workshop.hover.ref.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable Hover on References."
+        },
+        "dev-workshop.hover.ref.number.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Show number assigned to the reference in the previous compilation."
+        },
+        "dev-workshop.hover.citation.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable Hover on Citations."
+        },
+        "dev-workshop.hover.command.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable Hover on Commands to show the possible signatures."
+        },
+        "dev-workshop.hover.preview.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable Hover Preview."
+        },
+        "dev-workshop.hover.preview.maxLines": {
+          "scope": "window",
+          "type": "number",
+          "default": 20,
+          "markdownDescription": "Maximum number of lines between the beginning of the math environment and the cursor position to allow preview."
+        },
+        "dev-workshop.hover.preview.scale": {
+          "scope": "window",
+          "type": "number",
+          "default": 1,
+          "markdownDescription": "Scaling of Hover Preview."
+        },
+        "dev-workshop.hover.preview.newcommand.parseTeXFile.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable newcommands defined in the current TeX file to be included in Hover Preview."
+        },
+        "dev-workshop.hover.preview.newcommand.newcommandFile": {
+          "scope": "window",
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Set the path of a file containing newcommands to be used in Hover Preview. If the path is relative, it is joined with the root dir."
+        },
+        "dev-workshop.hover.preview.cursor.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Render cursor in Hover Preview at the current position."
+        },
+        "dev-workshop.hover.preview.cursor.symbol": {
+          "scope": "window",
+          "type": "string",
+          "default": "\\!|\\!",
+          "markdownDescription": "Cursor symbol in Hover Preview."
+        },
+        "dev-workshop.hover.preview.cursor.color": {
+          "scope": "window",
+          "type": "string",
+          "default": "auto",
+          "enum": [
+            "auto",
+            "black",
+            "blue",
+            "brown",
+            "cyan",
+            "darkgray",
+            "gray",
+            "green",
+            "lightgray",
+            "lime",
+            "magenta",
+            "olive",
+            "orange",
+            "pink",
+            "purple",
+            "red",
+            "teal",
+            "violet",
+            "white",
+            "yellow"
+          ],
+          "markdownDescription": "The color of cursor in Hover Preview."
+        },
+        "dev-workshop.hover.preview.mathjax.extensions": {
+          "scope": "window",
+          "type": "array",
+          "default": [],
+          "markdownDescription": "MathJax extensions to load for Hover Preview. See [the list](https://docs.mathjax.org/en/latest/input/tex/extensions/index.html). Note that the following extensions are loaded by default: `ams`, `color`, `newcommand`, `noerrors`, and `noundefined`. They cannot be disabled.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "amscd",
+              "bbox",
+              "boldsymbol",
+              "braket",
+              "bussproofs",
+              "cancel",
+              "cases",
+              "centernot",
+              "colortbl",
+              "empheq",
+              "enclose",
+              "extpfeil",
+              "gensymb",
+              "html",
+              "mathtools",
+              "mhchem",
+              "physics",
+              "textcomp",
+              "textmacros",
+              "unicode",
+              "upgreek",
+              "verb"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "dev-workshop.intellisense.optionalArgsEntries.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Some Dev commands can have several forms, each with different arguments. If set to True, the intellisense completion list will have one entry for each form of a given command. Default is true."
+        },
+        "dev-workshop.intellisense.argumentHint.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Many snippets use text hints of the form `${\\d:some_tex}` for their argument. You may prefer to hide instead by setting this configuration to `false`."
+        },
+        "dev-workshop.intellisense.citation.backend": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "bibtex",
+            "bibdev"
+          ],
+          "default": "bibtex",
+          "markdownDescription": "Backend to use for citation intellisense."
+        },
+        "dev-workshop.intellisense.bibtexJSON.replace": {
+          "scope": "resource",
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "default": {},
+          "markdownDescription": "Dictionary of `\"entry name\": [\"array\", \"of\", \"fields\"]` to replace the default fields used in `data/bibtex-entries.json`. See `data/bibtex-entries.json` for the list of fields for each entry. This variable is used when `#dev-workshop.intellisense.citation.backend#` is set to `bibtex`."
+        },
+        "dev-workshop.intellisense.bibdevJSON.replace": {
+          "scope": "resource",
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "default": {},
+          "markdownDescription": "Dictionary of `\"entry name\": [\"array\", \"of\", \"fields\"]` to replace the default fields used in `data/bibdev-entries.json`. See `data/bibdev-entries.json` for the list of fields for each entry. This variable is used when `#dev-workshop.intellisense.citation.backend#` is set to `bibdev`."
+        },
+        "dev-workshop.texdoc.path": {
+          "scope": "window",
+          "type": "string",
+          "default": "texdoc",
+          "markdownDescription": "Define the location of the `texdoc` executable. This command is used to show a package documentation."
+        },
+        "dev-workshop.texdoc.args": {
+          "scope": "window",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "--view"
+          ],
+          "markdownDescription": "Texdoc arguments to see a package documentation. Arguments must be in separate strings in the array. The package name is automatically appended to the arguments."
+        },
+        "dev-workshop.bibtex.maxFileSize": {
+          "scope": "window",
+          "type": "number",
+          "default": 5,
+          "markdownDescription": "Defines the maximum bibtex file size for the extension to parse in MB."
+        },
+        "dev-workshop.bibtex-format.tab": {
+          "scope": "resource",
+          "type": "string",
+          "default": "2 spaces",
+          "markdownDescription": "Indentation for each field. The string can be `\"tab\"` or of the form `\"X spaces\"` or simply `\"X\"` where `X` is a number."
+        },
+        "dev-workshop.bibtex-format.surround": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "Curly braces",
+            "Quotation marks"
+          ],
+          "default": "Curly braces",
+          "description": "Surround each field value with either {Curly braces} or \"Quotation marks\"."
+        },
+        "dev-workshop.bibtex-format.case": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "UPPERCASE",
+            "lowercase"
+          ],
+          "default": "lowercase",
+          "description": "Determines if field names should be formatted like 'AUTHOR' or 'author'."
+        },
+        "dev-workshop.bibtex-format.trailingComma": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Keep the trailing comma of the last field item."
+        },
+        "dev-workshop.bibtex-format.sortby": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "markdownDescription": "An array of strings to sort by. Either a bibtex field name (title, author, year, etc.), or `\"year-desc\"` to sort by year in descending order, or `\"key\"` for the entry key, or `\"type\"` for the entry type (article, book, misc, etc.). E.g. `[\"author\", \"year-desc\", \"title\"]`.",
+          "default": [
+            "key"
+          ]
+        },
+        "dev-workshop.bibtex-format.handleDuplicates": {
+          "scope": "resource",
+          "type": "string",
+          "enum": [
+            "Ignore Duplicates",
+            "Highlight Duplicates",
+            "Comment Duplicates"
+          ],
+          "default": "Highlight Duplicates",
+          "markdownDescription": "How to handle duplicates found by the bibtex sorting functions. Duplicates are decided according to the `bibtex-format.sortby` config."
+        },
+        "dev-workshop.bibtex-format.sort.enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Sort content when calling VSCode format on a .bib file."
+        },
+        "dev-workshop.bibtex-format.align-equal.enabled": {
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Align equal signs when calling VSCode format on a .bib file."
+        },
+        "dev-workshop.bibtex-entries.first": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "string",
+            "xdata"
+          ],
+          "markdownDescription": "When `#dev-workshop.bibtex-fields.sort.enabled#` is true, these fields are put at the top, in the order defined by the array."
+        },
+        "dev-workshop.bibtex-fields.sort.enabled": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "Sort fields inside every entry. The sorting order is defined by `#dev-workshop.bibtex-fields.order#`. This variable only has effect when formatting bibtex aligns fields. It is not possible to sort entries without aligning them."
+        },
+        "dev-workshop.bibtex-fields.order": {
+          "scope": "resource",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "When `#dev-workshop.bibtex-fields.sort.enabled#` is true, sort fields according the order defined here and then alphabetically for non listed fields."
+        },
+        "dev-workshop.mathpreviewpanel.cursor.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "[Experimental] Render a cursor on the math preview panel. **This feature is experimental. If you report an issue to us on this feature, we will not fix it. We will not accept any pull requests.**"
+        },
+        "dev-workshop.mathpreviewpanel.editorGroup": {
+          "scope": "window",
+          "type": "string",
+          "default": "below",
+          "enum": [
+            "current",
+            "left",
+            "right",
+            "above",
+            "below"
+          ],
+          "markdownDescription": "The editor group in which to open the math preview panel.",
+          "enumDescriptions": [
+            "Use the current editor group",
+            "Put the math preview panel in a new group on the left of the current one",
+            "Put the math preview panel in a new group on the right of the current one",
+            "Put the math preview panel in a new group above the current one",
+            "Put the math preview panel in a new group below the current one"
+          ]
+        },
+        "dev-workshop.selection.smart.dev.enabled": {
+          "scope": "window",
+          "type": "boolean",
+          "default": true,
+          "markdownDescription": "Enable AST based smart selection. Command ids are `editor.action.smartSelect.expand` and `editor.action.smartSelect.shrink`."
+        },
+        "dev-workshop.codespaces.portforwarding.openDelay": {
+          "scope": "window",
+          "type": "number",
+          "default": 20000,
+          "markdownDescription": "Delay to wait for GitHub Codespaces Authentication of port forwarding to be resolved, in milliseconds."
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "when": "config.dev-workshop.showContextMenu && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !virtualWorkspace",
+          "command": "dev-workshop.build",
+          "group": "navigation@100"
+        },
+        {
+          "when": "config.dev-workshop.showContextMenu && editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !virtualWorkspace",
+          "command": "dev-workshop.synctex",
+          "group": "navigation@101"
+        }
+      ],
+      "editor/title": [
+        {
+          "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !virtualWorkspace",
+          "command": "dev-workshop.view",
+          "group": "navigation@2"
+        },
+        {
+          "when": "editorLangId =~ /^dev$|^dev-expl3$|^doctex$|^rsweave$|^jlweave$|^pweave$/ && !virtualWorkspace",
+          "command": "dev-workshop.build",
+          "group": "navigation@1"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "dev-workshop-activitybar",
+          "title": "Dev",
+          "icon": "./icons/activity-bar.svg"
+        }
+      ]
+    },
+    "views": {
+      "dev-workshop-activitybar": [
+        {
+          "id": "dev-workshop-commands",
+          "name": "%activity.commands%",
+          "when": "dev-workshop:enabled"
+        },
+        {
+          "id": "dev-workshop-structure",
+          "name": "%activity.structure%",
+          "when": "dev-workshop:enabled"
+        },
+        {
+          "id": "dev-workshop-snippet-view",
+          "name": "%activity.snippetview%",
+          "when": "dev-workshop:enabled",
+          "type": "webview"
+        }
+      ]
+    },
+    "customEditors": [
+      {
+        "viewType": "dev-workshop-pdf-hook",
+        "displayName": "Dev Workshop Internal PDF Viewer",
+        "selector": [
+          {
+            "filenamePattern": "*.pdf"
+          },
+          {
+            "filenamePattern": "*.PDF"
+          }
+        ],
+        "priority": "default"
+      }
+    ]
+  },
+  "scripts": {
+    "clean": "rimraf out/ .eslintcache",
+    "compile": "tsc -p tsconfig.json && tsc -p viewer/tsconfig.json",
+    "coverage": "c8 --check-coverage npm run test --src out/src/",
+    "lint": "eslint --cache --ext .ts,.js .",
+    "lint:fix": "eslint --fix --cache --ext .ts,.js .",
+    "release": "npm run clean && npm run lint && npm run compile && vsce package",
+    "test": "node ./out/test/runTest.js",
+    "watch-src": "tsc -watch -p tsconfig.json",
+    "watch-viewer": "tsc -watch -p viewer/tsconfig.json",
+    "update-grammar": "node ./dev/update-grammar.mjs"
+  },
+  "dependencies": {
+    "cross-spawn": "7.0.3",
+    "glob": "10.3.15",
+    "iconv-lite": "0.6.3",
+    "dev-utensils": "npm:latex-utensils@6.2.0",
+    "mathjax-full": "3.2.2",
+    "micromatch": "4.0.8",
+    "pdfjs-dist": "4.3.136",
+    "tmp": "0.2.3",
+    "workerpool": "9.1.1",
+    "ws": "8.17.1"
+  },
+  "devDependencies": {
+    "@types/cross-spawn": "6.0.6",
+    "@types/glob": "8.1.0",
+    "@types/micromatch": "4.0.7",
+    "@types/mocha": "10.0.6",
+    "@types/node": "18.15.3",
+    "@types/sinon": "17.0.3",
+    "@types/tmp": "0.2.6",
+    "@types/vscode": "1.88.0",
+    "@types/ws": "8.5.10",
+    "@typescript-eslint/eslint-plugin": "7.9.0",
+    "@typescript-eslint/parser": "7.9.0",
+    "@unified-dev/unified-dev-types": "npm:@unified-latex/unified-latex-types@1.7.1",
+    "@unified-dev/unified-dev-util-arguments": "npm:@unified-latex/unified-latex-util-arguments@1.7.1",
+    "@unified-dev/unified-dev-util-parse": "npm:@unified-latex/unified-latex-util-parse@1.7.1",
+    "@unified-dev/unified-dev-util-to-string": "npm:@unified-latex/unified-latex-util-to-string@1.7.1",
+    "@vscode/test-electron": "2.3.10",
+    "@vscode/vsce": "2.29.0",
+    "c8": "9.1.0",
+    "esbuild": "0.21.2",
+    "eslint": "8.56.0",
+    "mocha": "10.4.0",
+    "rimraf": "5.0.7",
+    "sinon": "18.0.0",
+    "textmate-bailout": "1.1.0",
+    "typescript": "5.4.5",
+    "vscode-extend-language": "0.2.2"
+  }
+}

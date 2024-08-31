@@ -1,0 +1,25 @@
+{
+  "includes": {
+    "ifxetex": [],
+    "xetex": [],
+    "bxbase": []
+  },
+  "macros": {
+    "zxSpecFamily": {},
+    "zxRMFamily": {},
+    "zxSFFamily": {},
+    "zxTTFamily": {},
+    "zxBDHookGenFamFlag": {},
+    "zxBDHookForgepTeXDir": {},
+    "ifzxPPInUTFEight": {},
+    "zxPPInUTFEighttrue": {},
+    "zxPPInUTFEightfalse": {},
+    "zxRequirepDevPackage{}": {
+      "snippet": "zxRequirepDevPackage{${1:package}}"
+    },
+    "pdevpackagesinunicode": {}
+  },
+  "envs": {},
+  "options": [],
+  "keyvals": []
+}
